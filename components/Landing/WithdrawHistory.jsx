@@ -10,21 +10,14 @@ import {
 } from "@chakra-ui/react";
 import { MdOutlineWallet } from "react-icons/md";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import Withdrawal from "../Modals/Withdrawal";
 
 const WithdrawHistory = () => {
   return (
     <>
       <Grid templateColumns={"repeat(2,1fr)"} fontSize={"xs"} gap={4} mb={5}>
         <GridItem>
-          <Button
-            rightIcon={<MdOutlineWallet />}
-            colorScheme="twitter"
-            variant="outline"
-            w={"100%"}
-            size={"xs"}
-          >
-            Withdraw
-          </Button>
+          <Withdrawal />
         </GridItem>
         <GridItem alignSelf={"center"}>
           <Center>
