@@ -9,6 +9,7 @@ import {
   Stack,
   Container,
   Heading,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { useLeaderboardStore } from "../../store";
 
@@ -30,7 +31,11 @@ const Row = (props) => {
             <Box
               as={"span"}
               fontWeight={"bold"}
-              color={props.rank <= 3 ? "purple.400" : "gray.900"}
+              color={
+                props.rank <= 3
+                  ? "purple.400"
+                  : useColorModeValue("gray.800", "gray.200")
+              }
             >
               {props.points}{" "}
             </Box>
