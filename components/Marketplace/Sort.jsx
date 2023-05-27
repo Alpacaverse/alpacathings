@@ -137,7 +137,7 @@ const Sort = (props) => {
       <Carousel
         mt={10}
         align={"start"}
-        slideSize={"80%"}
+        slideSize={"90%"}
         withControls={false}
         withIndicators
         height="100%"
