@@ -112,7 +112,9 @@ const Sort = (props) => {
                       />
                     </GridItem>
                     <GridItem colSpan={2}>
-                      <Text>{product.name}</Text>
+                      <Text color={useColorModeValue("black", "white")}>
+                        {product.name}
+                      </Text>
                       <Text
                         fontSize={"2xs"}
                         color={"green.200"}
