@@ -49,6 +49,7 @@ const CardButton = () => {
           </Link>
         </GridItem>
         <GridItem>
+          {/* link to Marketplace */}
           <Link href={"./marketplace"}>
             <Card icon={<MdShoppingCart />} title={"Marketplace"} />
           </Link>
