@@ -7,9 +7,16 @@ import {
   Image,
   Grid,
   GridItem,
+  Link,
 } from "@chakra-ui/react";
+import { useBadgeStore } from "../../store";
 
 const PointsDisplay = (props) => {
+  const [ranks, currentRankIndex] = useBadgeStore((state) => [
+    state.ranks,
+    state.currentRankIndex,
+  ]);
+
   return (
     <>
       <Grid
@@ -35,17 +42,19 @@ const PointsDisplay = (props) => {
           </Stack>
         </GridItem>
         <GridItem colSpan={1}>
-          <Center>
-            <Image
-              src={"./recycling.png"}
-              w={"70%"}
-              h={"70%"}
-              objectFit={"cover"}
-            />
-          </Center>
-          <Text fontSize={"2xs"} textAlign={"center"}>
-            Rookie Recycler
-          </Text>
+          <Link href={"./leaderboard"}>
+            <Center>
+              <Image
+                src={ranks[currentRankIndex].src}
+                w={"70%"}
+                h={"70%"}
+                objectFit={"cover"}
+              />
+            </Center>
+            <Text fontSize={"2xs"} textAlign={"center"}>
+              {ranks[currentRankIndex].title}
+            </Text>
+          </Link>
         </GridItem>
       </Grid>
     </>
