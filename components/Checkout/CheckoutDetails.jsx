@@ -55,7 +55,7 @@ const CheckoutDetails = (props) => {
       <Text fontSize={"18"} fontWeight={"bold"}>
         Delivery Method
       </Text>
-      <RadioGroup defaultValue="2">
+      <RadioGroup defaultValue="1">
         <Stack spacing={5} direction="row">
           <Radio colorScheme={"green"} value="1">
             Delivery
