@@ -8,16 +8,17 @@ import {
   Spacer,
   Heading,
   useColorModeValue,
-  CardBody,
-  Divider,
-  CardFooter,
-  ButtonGroup,
-  Button,
   Image,
+  Grid,
+  GridItem,
 } from "@chakra-ui/react";
 import ProductCard from "./ProductCard";
 import { Carousel } from "@mantine/carousel";
-import { FaShoppingCart, FaMoneyBill } from "react-icons/fa";
+import { Popover } from "@mantine/core";
+import { FaShoppingCart } from "react-icons/fa";
+import { useCartStore } from "../../store/useCartStore";
+import { MdDelete } from "react-icons/md";
+
 const apparelData = [
   {
     con: "New",
@@ -52,6 +53,19 @@ const electronicsData = [
 ];
 
 const Sort = (props) => {
+  const [cart, addToCart, setCart] = useCartStore((state) => [
+    state.cart,
+    state.addToCart,
+    state.setCart,
+  ]);
+
+  function handleCart(name) {
+    // remove item from cart and setCart to new array
+    const newCart = cart.filter((item) => item.name !== name);
+    setCart(newCart);
+    console.log(newCart);
+  }
+
   return (
     <>
       <Stack direction={"row"} alignItems={"center"}>
@@ -62,11 +76,74 @@ const Sort = (props) => {
           </Box>
         </Text>
         <Spacer />
-        <IconButton
-          bg={"green.300"}
-          aria-label="Add to cart"
-          icon={<FaShoppingCart />}
-        />
+        <Popover
+          width={300}
+          position="bottom-end"
+          withArrow
+          shadow="md"
+          offset={0}
+        >
+          <Popover.Target>
+            <IconButton
+              bg={"green.300"}
+              aria-label="Add to cart"
+              icon={<FaShoppingCart />}
+            />
+          </Popover.Target>
+          <Popover.Dropdown>
+            <Box>
+              {cart.map((product, index) => (
+                <Box key={product.name + index}>
+                  <Grid
+                    templateColumns={"repeat(4,1fr)"}
+                    fontSize={"sm"}
+                    alignItems={"center"}
+                    gap={4}
+                    my={4}
+                  >
+                    <GridItem colSpan={1}>
+                      {" "}
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        w={12}
+                        h={12}
+                        objectFit={"cover"}
+                      />
+                    </GridItem>
+                    <GridItem colSpan={2}>
+                      <Text>{product.name}</Text>
+                      <Text
+                        fontSize={"2xs"}
+                        color={"green.200"}
+                        fontWeight={"semibold"}
+                      >
+                        {product.type}
+                      </Text>
+                    </GridItem>
+                    <GridItem colSpan={1}>
+                      <Text textAlign={"end"}>RM {product.price}</Text>
+                      <Box
+                        display={"flex"}
+                        alignItems={"end"}
+                        justifyContent={"end"}
+                      >
+                        <IconButton
+                          my={1}
+                          bg={"red.300"}
+                          aria-label="Add to cart"
+                          icon={<MdDelete />}
+                          size={"xs"}
+                          onClick={() => handleCart(product.name)}
+                        />
+                      </Box>
+                    </GridItem>
+                  </Grid>
+                </Box>
+              ))}
+            </Box>
+          </Popover.Dropdown>
+        </Popover>
       </Stack>
 
       <Stack direction={"row"} py={5} alignItems={"center"}>
@@ -139,7 +216,7 @@ const Sort = (props) => {
         align={"start"}
         slideSize={"90%"}
         withControls={false}
-        withIndicators
+        withIndicators={false}
         height="100%"
         sx={{ flex: 1 }}
       >
