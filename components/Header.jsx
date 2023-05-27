@@ -31,14 +31,19 @@ export default function Header() {
     <>
       <Box bg={useColorModeValue("green.600", "green.600")} px={4}>
         <Flex h={14} alignItems={"center"} justifyContent={"space-between"}>
-          <Box>
-            <Link href="/">
-              <Image src={iconSource} alt="Natsukashii" w={"100%"} h={10} />
-            </Link>
+          <Box fontSize={"xs"}>
+            <Stack direction="row" textAlign={"center"} alignItems={"center"}>
+              <Link href="/">
+                <Image src={iconSource} alt="Natsukashii" w={"100%"} h={10} />
+              </Link>
+              <Link href="/">Home</Link>
+              <Link href="/marketplace">Marketplace</Link>
+              <Link href="/vendingQR">QR</Link>
+            </Stack>
           </Box>
 
           <Flex alignItems={"center"}>
-            <Stack direction={"row"} spacing={7}>
+            <Stack direction={"row"} spacing={3}>
               <Button
                 onClick={() => {
                   toggleColorMode();

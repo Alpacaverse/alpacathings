@@ -1,0 +1,73 @@
+import { create } from "zustand";
+
+export const useBadgeStore = create((set) => ({
+  ranks: [
+    {
+      key: 0,
+      src: "./bronze-medal.png",
+      alt: "Bronze",
+      isAchieved: true,
+      title: "Rookie Recycler",
+      pointCriteria: 100,
+    },
+    {
+      key: 1,
+      src: "./silver-medal.png",
+      alt: "Silver",
+      isAchieved: true,
+      title: "Tidying Up",
+      pointCriteria: 200,
+    },
+    {
+      key: 2,
+      src: "./gold-medal.png",
+      alt: "Gold",
+      isAchieved: false,
+      title: "Keeping Clean",
+      pointCriteria: 300,
+    },
+    {
+      key: 3,
+      src: "./locked-medal.png",
+      alt: "???",
+      isAchieved: false,
+      title: "Passion For Cleanliness",
+      pointCriteria: 400,
+    },
+    {
+      key: 4,
+      src: "./locked-medal.png",
+      alt: "???",
+      isAchieved: false,
+      title: "Clean Freak",
+      pointCriteria: 600,
+    },
+    {
+      key: 5,
+      src: "./locked-medal.png",
+      alt: "???",
+      isAchieved: false,
+      title: "Germ Free",
+      pointCriteria: 800,
+    },
+    {
+      key: 6,
+      src: "./locked-medal.png",
+      alt: "???",
+      isAchieved: false,
+      title: "Virus Killer",
+      pointCriteria: 1000,
+    },
+    {
+      key: 7,
+      src: "./locked-medal.png",
+      alt: "???",
+      isAchieved: false,
+      title: "Hand Sanitizer",
+      pointCriteria: 1500,
+    },
+  ],
+  currentRankIndex: 1,
+  currentPoints: 220,
+  setCurrentRank: (currentRank) => set({ currentRank: currentRank }),
+}));

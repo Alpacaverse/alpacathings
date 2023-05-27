@@ -5,6 +5,7 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 function ModalComponent(props) {
@@ -24,6 +25,7 @@ function ModalComponent(props) {
           justifyContent="center"
           textAlign="center"
           height="200px"
+          color={"gray.800"}
         >
           <AlertIcon boxSize="50px" mr={0} />
           <AlertTitle mt={4} mb={1} fontSize="lg">
