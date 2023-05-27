@@ -4,3 +4,4 @@ export { default as Landing } from "./Landing";
 export { default as VQR } from "./VendingQR";
 export { default as LeaderboardComponent } from "./Leaderboard";
 export { default as TransactionHistoryComponent } from "./TransactionHistory";
+export { default as Marketplace } from "./Marketplace";
