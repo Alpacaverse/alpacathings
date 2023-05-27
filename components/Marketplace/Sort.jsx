@@ -39,14 +39,14 @@ const electronicsData = [
     con: "Used",
     imageURL: "/cooker.jpg",
     name: "Rice Cooker",
-    price: 50.0,
+    price: 25.0,
     description: "Buy me if you want to be slim! ( 2.5L )",
   },
   {
     con: "Used",
     imageURL: "/fridges.jpg",
     name: "Mini Refrigerators",
-    price: 300.0,
+    price: 50.0,
     description: "Small size refrigerator ( 1.5L ) but powerful",
   },
 ];
@@ -105,9 +105,9 @@ const Sort = (props) => {
       <Carousel
         mb={10}
         align={"start"}
-        slideSize={"80%"}
+        slideSize={"90%"}
         withControls={false}
-        withIndicators
+        withIndicators={false}
         height="100%"
         sx={{ flex: 1 }}
       >

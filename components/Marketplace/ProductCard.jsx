@@ -1,21 +1,14 @@
 import {
-  Flex,
-  Circle,
+  Link,
   Box,
   Card,
   CardBody,
   Stack,
   Heading,
-  Divider,
-  CardFooter,
   ButtonGroup,
   Button,
   Image,
-  Badge,
   useColorModeValue,
-  Icon,
-  chakra,
-  Tooltip,
   Text,
 } from "@chakra-ui/react";
 import { FaShoppingCart, FaMoneyBill } from "react-icons/fa";
@@ -51,14 +44,16 @@ function ProductCard(props) {
             </Text>
           </Stack>
           <ButtonGroup spacing="2">
-            <Button
-              fontSize={"xs"}
-              variant="solid"
-              colorScheme={"green"}
-              leftIcon={<FaMoneyBill />}
-            >
-              Buy Now
-            </Button>
+            <Link href={"./checkout"}>
+              <Button
+                fontSize={"xs"}
+                variant="solid"
+                colorScheme={"green"}
+                leftIcon={<FaMoneyBill />}
+              >
+                Buy Now
+              </Button>
+            </Link>
             <Button
               fontSize={"xs"}
               variant="ghost"
