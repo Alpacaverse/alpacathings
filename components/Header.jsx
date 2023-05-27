@@ -25,7 +25,8 @@ export default function Header() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   const iconSource = "./recycle-bin.png";
-  const avatarSource = "./profile.png";
+  const avatarSource =
+    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ";
 
   return (
     <>
@@ -34,7 +35,7 @@ export default function Header() {
           <Box fontSize={"xs"}>
             <Stack direction="row" textAlign={"center"} alignItems={"center"}>
               <Link href="/">
-                <Image src={iconSource} alt="Natsukashii" w={"100%"} h={10} />
+                <Image src={iconSource} alt="Natsukashii" w={10} h={10} />
               </Link>
               <Link href="/">Home</Link>
               <Link href="/marketplace">Marketplace</Link>
